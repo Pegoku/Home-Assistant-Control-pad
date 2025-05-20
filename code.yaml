@@ -3,7 +3,7 @@ esphome:
   friendly_name: ControlPad
 
 esp32:
-  board: seeed_xiao_esp32c3
+  board: esp32-c3-devkitm-1
   framework:
     type: arduino
 
@@ -67,6 +67,24 @@ binary_sensor:
       - display.page.show: page2
       - lambda: |-
           id(page_active) = 2;
+  
+  - platform: gpio
+    pin:
+      number: GPIO21
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "toggle1"
+    on_press:
+      then:
+      - if:
+          condition:
+            lambda: |-
+              return id(page_active) == 1;
+          then:
+            - homeassistant.service:
+                service: light.toggle
+                data:
+                  entity_id: light.led_controller_1_light_bar
 
 sensor:
   - platform: homeassistant
@@ -85,12 +103,12 @@ sensor:
     name: "potentiometer1"
     id: potentiometer1
     attenuation: 12db        # allow 0–3.3 V range
-    update_interval: 100ms
+    update_interval: 20ms
     unit_of_measurement: "%"
     filters:
       - sliding_window_moving_average:
           window_size: 10
-          send_every: 10
+          send_every: 5
       - lambda: |-
           if (isnan(x)) return 0.0f;
           int pot_val = int(x * 100.0f / 2.9f);
