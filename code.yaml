@@ -140,11 +140,17 @@ display:
     pages:
       - id: page1
         lambda: |-
-          it.printf(0, 0, id(font1), "Light: %.0f%%", id(led_controller_1_light_bar_brightness).state);
-          it.printf(0, 20, id(font1), "Pot: %.0f%%", id(potentiometer1).state);
+          int val1 = int((id(led_controller_1_light_bar_brightness).state / 100.0f) * 31);
+          if (val1 != 0) {
+            val1 += 1;
+          }
+          it.filled_rectangle(10, 64-val1, 5, 33);
+
+          // it.printf(0, 0, id(font1), "%.0f%%", id(led_controller_1_light_bar_brightness).state);
       - id: page2
         lambda: |-
           it.print(0, 10, id(font1), "This is page 2!");
+          it.filled_rectangle(10, 20, 80, 5);
 
 font:
   - file: "gfonts://Ubuntu"
