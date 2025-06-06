@@ -74,7 +74,7 @@ A programmable control pad (buttons and knobs) that integrates with Home Assista
 Remember to set your secrets in [secrets.yaml](Code/secrets.example.yaml).
 
 All firmware configuration lives in [code.yaml](Code/code.yaml):
-PS: This configuration is for reference only, The final configuration will be for the ESP32-H2. You'll also have to configure the devices you want to control in Home Assistant.
+PS: This configuration is for reference only, The final configuration will be for the ESP32-S2. You'll also have to configure the devices you want to control in Home Assistant.
 ```yaml
 esphome:
   name: controlpad
