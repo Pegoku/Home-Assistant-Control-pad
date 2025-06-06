@@ -1,6 +1,6 @@
 # Home-Assistant-Control-pad
 
-A programmable control pad (buttons and knobs) that integrates with Home Assistant via ESPHome on an ESP32-H2.
+A programmable control pad (buttons and knobs) that integrates with Home Assistant via ESPHome on an ESP32-S2.
 
 ## Features
 
