@@ -1,6 +1,10 @@
 # Home-Assistant-Control-pad
 
-A programmable control pad (buttons and knobs) that integrates with Home Assistant via ESPHome on an ESP32-S2.
+This is a programmable Home Assistant Control Pad. It can control 4 Home assistant devices at a time, and has 4 togglable screens/zones (in total 16 devices). It uses buttons and rotary encoders to enable and control other HASS devices. It also has an OLED Display (1.33") to display the status of the devices. It is battery powered, it contains a 1800mAh Li-Po. The device uses an ESP32-S2 and ESPHome.
+
+## Why I made it?
+
+I made this project as I wanted an easy and fast way to control the "smart" devices I have made. I'm making quite a few ESPHome devices and wanted something to control most of them easily.
 
 ## Features
 
