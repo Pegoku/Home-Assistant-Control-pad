@@ -106,3 +106,36 @@ I finished the case. Added buttons and a slot for the USB-C port. I also added h
 ![alt text](assets/journal/image-13.png)
 
 **Total time spent: 4h**
+
+# July 4th: soldering the PCB
+Today I soldered the PCBs, it was pretty straightforward, except for some tiny components like the buck-boost converter which were a bit tricky to solder, as I was unable to see the IC labels.
+It was hard, but eventually I ended up with a fully soldered PCB!
+
+![alt text](assets/build/PXL_20250704_202810597.MP.jpg)
+
+Then, I tested the battery charging circuit, and it worked!!! I was able to charge the battery safely to 4.2V! (don't know how the leds work though, but idrc, it just works)
+
+![alt text](assets/build/PXL_20250704_224240737.MP.jpg)
+
+**Total time spent: 6h**
+
+# August 2nd: 
+Quite a long time has passed, but it was worth it! I went to the best hackathon ever, Undercity! It was an amazing experience, I met a lot of amazing people and learned a lot. I also got to build a cool project.
+Continuing from where I left off. I started coding the firmware for the control pad. Luckily I had already done most of the work, as I already had a working version for the ESP32-C3, so I just had to adapt it to the ESP32-S2. I also added support for the rotary encoders. 
+Sadly, the code wasn't working as expected. The rotary encoders registered, but they weren't showing on the display, so I debugged it for a while, I even thought it was a power issue, which in part it was, as I discovered the 5V boost wasn't behaving correctly. And that's why I tried wiring the display to 3.3V, with no luck.
+
+![alt text](assets/build/PXL_20250802_150521126.MP.jpg)
+
+Then, I debugged the code, and found that the issue was with the I2C bus. It seems that I wired the I2C pins incorrectly as no devices were being detected. 
+I left it for the day, as I was tired and frustrated.
+**Total time spent: 6h**
+
+# August 3rd: Debugging the I2C bus
+Today was getting close to the deadline to ship projects to highway, so I did a but of _multitasking_ and worked on this prject and the Smart desk lamp at the same time.
+I still thought the problem with the display was a power issue, so I inspected the PCB and found that it had an 3.3V LDO, and I just bridged it so the display would get the direct 3.3V from the buck-boost converter. Sadly, it didn't help. I also tried with a diferent display, but it didn't work either. As a las resort, I configured the GPIOs 18 and 36 to be the I2C pins, they were for buttons, but I didn't need them for now. But again, that didn't work either, yes, I added pull-up resistors to the SDA and SCL lines, but it still didn't work. I was getting really frustrated, so I left it for the day.
+I think I'll just not use the display for now. It'll just be able to control 4 devices, but I think It'll be enough, as I don't really have that many "smart" devices at home.
+
+![alt text](assets/build/PXL_20250803_161150798.MP.jpg)
+
+**Total time spent: 4h**
+
