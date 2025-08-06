@@ -101,12 +101,19 @@ sensor:
     pin_a: GPIO10
     pin_b: GPIO11
     resolution: 4
+    min_value: 0
+    max_value: 100
     on_value:
       then:
         - logger.log:
             level: INFO
             format: "Encoder1 value: %.0f"
             args: ["id(encoder1).state"]
+        - homeassistant.service:
+            service: light.turn_on
+            data:
+              entity_id: light.led_controller_1_light_bar
+              brightness_pct: !lambda "return id(encoder1).state;"
 
   - platform: rotary_encoder
     name: "Encoder 2"

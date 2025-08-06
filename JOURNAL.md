@@ -3,7 +3,7 @@ title: "Home Assistant Control Pad"
 author: "Pegoku"
 description: "An ESP32-S2 based Control pad for Home Assistant."
 created_at: "2025-05-18"
-total_time_spent: "34h"
+total_time_spent: "54h"
 ---
 
 # May 18th: Sketch and first prototype!
@@ -139,3 +139,12 @@ I think I'll just not use the display for now. It'll just be able to control 4 d
 
 **Total time spent: 4h**
 
+# August 5th: Final assembly
+Today I assembled the case. Sadly not everything fit as I expected, so I had to do some modifications to the case. 
+This are all the modifications I had to do:
+
+![alt text](assets/build/PXL_20250805_183627054.MP.jpg) 
+
+![alt text](assets/build/PXL_20250805_183645312.MP.jpg)
+
+**Total time spent: 4h**
