@@ -13,6 +13,10 @@ I made this project as I wanted an easy and fast way to control the "smart" devi
 
 ## Images
 
+Final Build: 
+
+![alt text](assets/build/image.png)
+
 <details>
   <summary>Case</summary>
 
